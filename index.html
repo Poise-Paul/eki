@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Eki Market Place</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              bg: "url('./Assets/Products-bg.png')",
+              footer:
+                "url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')",
+            },
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h-full relative">
+      <nav>
+        <nav
+          role="navigation"
+          class="
+            flex
+            justify-between
+            items-center
+            lg:h-28
+            sm:h-16
+            bg-gradient-to-r
+            from-primary
+            to-green-700
+            text-white
+            relative
+          "
+        >
+          <a href="index.html" class="ml-6"
+            ><img src="./Assets/Logo.png" class="lg:w-full sm:w-1/2" alt=""
+          /></a>
+          <div class="px-4 cursor-pointer md:hidden" id="bars">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-green-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </div>
+          <div
+            class="hidden md:block mr-4 p-5 space-x-4 z-10 text-gray-200"
+            id="menu"
+          >
+            <a
+              href="about.html"
+              class="
+                hover:text-white
+                transition
+                duration-500
+                ease-in-out
+                text-green-700
+              "
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Products</a
+            >
+            <a
+              href="signIn.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Login</a
+            >
+            <a
+              href="signUp.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Sign Up</a
+            >
+          </div>
+        </nav>
+      </nav>
+      <!-- Header -->
+      <section class="header relative">
+        <div class="w-full h-96 swiper mySwiper absolute z-auto">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                class="object-cover w-full h-full"
+                src="./Assets/Hero-bg.png"
+                alt="image"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="object-cover w-full h-full"
+                src="Assets/Hero-bg-2.png"
+                alt="image"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="object-cover w-full h-full"
+                src="Assets/Hero-bg-3.png"
+                alt="image"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="text-center absolute z-50 h-1/2 w-screen py-32">
+          <h1 class="text-4xl text-white">
+            <strong
+              >THE B2B MARKET <br />
+              FOR PREMIUM QUALITY</strong
+            >
+          </h1>
+          <div class="btns mt-10">
+            <button
+              class="
+                bg-white
+                text-green-500
+                hover:bg-green-500 hover:text-white
+                transition
+                duration-500
+                ease-in-out
+                mr-5
+                rounded
+                px-5
+                py-2
+                shadow-lg shadow-gray-300
+              "
+            >
+              Request Sample
+            </button>
+            <button
+              class="
+                bg-green-500
+                text-white
+                hover:bg-white hover:text-green-500
+                transition
+                duration-500
+                ease-in-out
+                rounded
+                px-5
+                py-2
+                shadow-lg shadow-green-500
+              "
+            >
+              Order Now
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="innovation-section h-1/2 w-screen mt-96 text-center p-10">
+        <div class="ctn-cont">
+          <h1 class="text-4xl"><strong>Our Innovation</strong></h1>
+          <p>
+            We connect local verified African farmers, cooperatives and
+            association <br />
+            directly to the Global food industry
+          </p>
+          <div class="mt-14 flex justify-center">
+            <img src="./Assets/Eki-Circle.svg" alt="" width="30%" />
+          </div>
+        </div>
+      </section>
+      <sections class="products h-1/2 w-screen mt-96 bg-red-700 text-center">
+        <div class="content bg-bg h-full bg-cover w-full p-5">
+          <h1 class="text-3xl text-white"><strong>Popular Products</strong></h1>
+
+          <div class="card-rows flex flex-row space-x-5 justify-center my-14">
+            <div class="cards w-64">
+              <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                <div class="image-ctn w-full flex justify-center p-4">
+                  <img
+                    class=""
+                    src="data:image/png;base64,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"
+                    alt="Eki Market"
+                  />
+                </div>
+                <hr class="text-gray-300" />
+                <div class="px-6 py-4 text-left">
+                  <div class="font-bold text-xl mb-2 text-primary">
+                    First Plam oil
+                    <span class="text-gray-500"><small>250cl</small></span>
+                  </div>
+                  <div class="bottom-texts flex flex-row space-x-5">
+                    <p class="text-gray-700 text-base">Ede, Osun State</p>
+                    <p class="text-green-500 text-base">
+                      <strong>N32,000</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="buttons px-4 py-6">
+                  <button
+                    class="
+                      flex flex-row
+                      border-green-500
+                      text-green-500
+                      hover:bg-primary hover:text-white hover:bg-green-500
+                      font-regular
+                      w-full
+                      py-2
+                      border border-primary
+                      text-primary
+                      rounded
+                      transition
+                      duration-500
+                      ease-in-out
+                    "
+                  >
+                    <span class="h-full w-full">Place Order</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cards w-64">
+              <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                <div class="">
+                  <img
+                    class="w-full"
+                    src="https://post.healthline.com/wp-content/uploads/2020/08/AN405-palm-oil-fruit-732x549-Thumb.jpg"
+                    alt="Eki Market"
+                  />
+                </div>
+                <div class="px-6 py-4 text-left">
+                  <div class="font-bold text-xl mb-2 text-primary">
+                    Bongo Plam oil
+                    <span class="text-gray-500"><small>250cl</small></span>
+                  </div>
+                  <div class="bottom-texts flex flex-row space-x-5">
+                    <p class="text-gray-700 text-base">Ede, Osun State</p>
+                    <p class="text-green-500 text-base">
+                      <strong>N32,000</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="buttons px-4 py-6">
+                  <button
+                    class="
+                      flex flex-row
+                      border-green-500
+                      text-green-500
+                      hover:bg-primary hover:text-white hover:bg-green-500
+                      font-regular
+                      w-full
+                      py-2
+                      border border-primary
+                      text-primary
+                      rounded
+                      transition
+                      duration-500
+                      ease-in-out
+                    "
+                  >
+                    <span class="w-full">Place Order</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+
+            <div class="cards w-64">
+              <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                <img
+                  class="w-full"
+                  src="https://www.byrdie.com/thmb/63rD0uiH1puuPJhXf1qSiBZPr04=/3360x2520/smart/filters:no_upscale()/USED_rice-water-for-hair-22-49cb2c29e249461fa0563e5c7790d534.jpg"
+                  alt="Eki Market"
+                />
+                <div class="px-6 py-4 text-left">
+                  <div class="font-bold text-xl mb-2 text-primary">
+                    Bongo Plam oil
+                    <span class="text-gray-500"><small>250cl</small></span>
+                  </div>
+                  <div class="bottom-texts flex flex-row space-x-5">
+                    <p class="text-gray-700 text-base">Ede, Osun State</p>
+                    <p class="text-green-500 text-base">
+                      <strong>N32,000</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="buttons px-4 py-6">
+                  <button
+                    class="
+                      flex flex-row
+                      border-green-500
+                      text-green-500
+                      hover:bg-primary hover:text-white hover:bg-green-500
+                      font-regular
+                      w-full
+                      py-2
+                      border border-primary
+                      text-primary
+                      rounded
+                      transition
+                      duration-500
+                      ease-in-out
+                    "
+                  >
+                    <span class="w-full">Place Order</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- See  More -->
+            <!-- End See Nore -->
+          </div>
+          <div class="buttons px-4 py-6 -mt-5">
+            <button
+              class="
+                bg-white
+                text-green-500
+                hover:bg-green-500 hover:text-white
+                transition
+                duration-500
+                ease-in-out
+                mr-5
+                rounded
+                hover:shadow-green-500
+                px-5
+                py-2
+                shadow-lg shadow-gray-300
+              "
+            >
+              See More
+            </button>
+          </div>
+        </div>
+      </sections>
+      <section class="how">
+        <div class="main-how grid grid-cols-2 px-20 py-10">
+          <div class="col p-5">
+            <h1 class="text-4xl"><strong>How it Works</strong></h1>
+            <ul class="list-decimal p-5">
+              <li>Login / Register an Account</li>
+              <li>Create purchase order for confirmation (Buyers only)</li>
+              <li>
+                Order is shared with extensive networks of farmers, cooperatives
+                and associations
+              </li>
+              <li>Order is confirmed available</li>
+              <li>Price , quantity and packaging specifications are agreed</li>
+              <li>
+                Buyer makes payment and has the option of purchasing a tracking
+                chip (recommended)
+              </li>
+              <li>
+                Order is aggregated and shipped free on board (FOB) and products
+                are tracked to port.
+              </li>
+            </ul>
+          </div>
+          <div class="col p-5">
+            <img
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="w-full text-center mt-5">
+          <button
+            class="
+              rounded
+              border border-green-500
+              px-5
+              py-2
+              text-green-500
+              hover:bg-green-500 hover:text-white
+              shadow-lg shadow-green-500
+              transition
+              duration-500
+              ease-in-out
+            "
+          >
+            Get Started
+          </button>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div
+          class="
+            footer-main-ctn
+            bg-footer bg-cover bg-gray-900 bg-blend-multiply
+            px-20
+            py-20
+            text-white
+          "
+        >
+          <div
+            class="
+              footer-ctn
+              lg:grid lg:grid-cols-3 lg:gap-4
+              sm:block sm:text-left sm:space-y-4
+            "
+          >
+            <div class="grid-item">
+              <img src="/Assets/Eki Logo-white.svg" alt="" />
+            </div>
+            <div class="grid-item">
+              <ul>
+                <li class="pb-3">
+                  <h4><strong>Quick Links</strong></h4>
+                </li>
+                <li>eki (Marketplace)</li>
+                <li>Products & Servivces</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <ul>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-10 pr-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +234 801 234 5678
+                </li>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-10 pr-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  contact@revemi.com
+                </li>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-10 pr-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  Revemi Company P.O Box 1234 Lagos, Nigeria
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-center pt-20"><strong>PARTNERS</strong></div>
+
+          <div class="buttom-ctn flex justify-center">
+            <div class="">
+              <img src="/Assets/USAID.svg" alt="" />
+            </div>
+          </div>
+          <hr class="mt-10" />
+          <div class="social-bottom grid grid-cols-2 space-x-5 mt-5">
+            <div class="copyright">
+              <ul class="flex flex-row space-x-5">
+                <li>&copy; 2021 Revemi NG.</li>
+                <li>Privacy Policy</li>
+                <li>Terms of Use</li>
+              </ul>
+            </div>
+            <div class="socials">
+              <ul class="flex flex-row float-right space-x-5">
+                <li>
+                  <i
+                    class="bx bxl-facebook-circle bx-tada bx-rotate-90 text-2xl"
+                  ></i>
+                </li>
+                <li>
+                  <i class="bx bxl-instagram bx-tada bx-rotate-90 text-2xl"></i>
+                </li>
+                <li>
+                  <i class="bx bxl-whatsapp bx-burst bx-rotate-90 text-2xl"></i>
+                </li>
+                <li>
+                  <i class="bx bxl-twitter bx-spin bx-rotate-90 text-2xl"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
