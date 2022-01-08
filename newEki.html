@@ -13,9 +13,9 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="styles.css" />
     <title>Eki Market Place</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
       tailwind.config = {
         theme: {
@@ -24,19 +24,6 @@
               bg: "url('./Assets/Products-bg.png')",
               footer:
                 "url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')",
-              products:
-                "url('https://images.unsplash.com/photo-1573246123716-6b1782bfc499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80')",
-              cocoa:
-                "url('https://images.unsplash.com/photo-1582082568487-628de573f601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
-              nuts: "url('https://images.unsplash.com/photo-1600189020840-e9918c25269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')",
-              maize:
-                "url('https://images.unsplash.com/photo-1623066798929-946425dbe1b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
-              spices:
-                "url('https://images.unsplash.com/photo-1610216339841-a0456a6c86a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80')",
-              seeds:
-                "url('https://uwanbuy.kwaliti.com.ng/wp-content/uploads/2019/04/parent-foodies-banga.jpg')",
-              tuber:
-                "url('https://guardian.ng/wp-content/uploads/2017/02/yam.jpg')",
             },
             colors: {
               clifford: "#da373d",
@@ -64,42 +51,20 @@
           content-visibility: auto;
         }
       }
+
       @layer base {
-        .product-container {
-          @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl w-60 h-60 rounded-2xl bg-white transition-all duration-500 ease-in-out;
-        }
-
-        .product-container:hover .product-container-img {
-          @apply scale-150 absolute w-full mx-0 transition duration-500 ease-in-out h-full top-0 left-0 bg-gray-500 bg-blend-multiply;
-        }
-
-        .product-container:hover .product-container-text {
-          @apply absolute transition duration-500 ease-in-out text-white;
-        }
-
-        /* Selected Product */
-
-        .selected-img {
-          @apply scale-150 absolute w-full mx-0 transition duration-500 ease-in-out h-full top-0 left-0 bg-gray-500 bg-blend-multiply;
-        }
-
-        .selected-text {
-          @apply absolute transition duration-500 ease-in-out text-white;
-        }
-
-        /* End of Selected Product */
         ::-webkit-scrollbar {
           display: none;
         }
       }
     </style>
   </head>
-  <body>
-    <div class="h-full relative font-mont">
-      <!-- Start Navigation -->
+  <body class="bg-mainBg">
+    <div class="h-full relative w-full">
+      <!-- Nav Bar -->
       <nav
         role="navigation"
-        class="flex justify-between items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative"
+        class="flex justify-between bg-white items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative"
       >
         <a href="index.html" class="ml-6"
           ><img
@@ -183,14 +148,14 @@
           <ul class="flex flex-col space-y-7">
             <a href="index.html">
               <li
-                class="hover:text-primary transition duration-500 ease-in-out"
+                class="text-primary hover:text-primary transition duration-500 ease-in-out"
               >
                 Home
               </li></a
             >
             <a href="products.html">
               <li
-                class="text-primary hover:text-primary transition duration-500 ease-in-out"
+                class="hover:text-primary transition duration-500 ease-in-out"
               >
                 Products
               </li></a
@@ -212,128 +177,41 @@
           </ul>
         </div>
       </div>
-
-      <!-- End OF Navigation -->
-      <!-- Header -->
-      <section class="header bg-products bg-cover">
+      <!-- End Nav Bar -->
+      <!-- Choose Where to Login -->
+      <div
+        class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 font-mont"
+      >
         <div
-          class="header-content text-center pb-10 bg-secondary bg-opacity-80 p-10"
+          class="max-w-md w-full space-y-8 bg-white shadow-md border-gray-200 border shadow-gray-300 p-10"
         >
-          <h1 class="text-3xl text-white font-sans pt-3 uppercase">
-            <strong>Choose a product to Start order Placement</strong>
-          </h1>
-          <div
-            class="circles flex flex-row-4 justify-center flex-wrap md:px-80 mb-10 space-x-5 mt-5 font-mont font-medium capitalize"
-          >
-            <div
-              class="rounded-full product-container relative h-28 w-28 text-center flex flex-col justify-center mt-5"
-            >
-              <div
-                class="rounded-full product-container-img bg-cocoa h-14 w-14 mx-10"
-              ></div>
-              <div class="product-container-text text-green-500 pt-2">
-                <h1>Cocoa</h1>
-              </div>
-            </div>
-            <div
-              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
-            >
-              <div
-                class="rounded-full bg-nuts h-14 w-14 mx-10 product-container-img"
-              ></div>
-              <div class="text-green-500 product-container-text pt-2">
-                <h1>Nuts</h1>
-              </div>
-            </div>
-            <div
-              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
-            >
-              <div
-                class="rounded-full bg-maize h-14 w-14 mx-10 product-container-img"
-              ></div>
-              <div class="product-container-text text-green-500 pt-2">
-                <h1>Maize</h1>
-              </div>
-            </div>
-            <div
-              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
-            >
-              <div
-                class="rounded-full bg-spices h-14 w-14 mx-10 product-container-img"
-              ></div>
-              <div class="text-green-500 product-container-text pt-2">
-                <h1>Spices</h1>
-              </div>
-            </div>
-            <div
-              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
-            >
-              <div
-                class="rounded-full bg-seeds h-full w-full selected-img"
-              ></div>
-              <div class="text-white pt-2 selected-text">
-                <h1>Oil Seeds</h1>
-              </div>
-            </div>
-            <div
-              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
-            >
-              <div
-                class="rounded-full bg-tuber h-16 w-16 mx-10 product-container-img"
-              ></div>
-              <div class="product-container-text text-green-500 pt-2">
-                <h1>Tuber</h1>
-              </div>
+          <div class="text-center">
+            <h2 class="mt-6 text-1xl text-gray-500">New to eKi?</h2>
+            <a href="signUp.html">
+              <button
+                class="bg-primary rounded-lg w-full transition duration-500 ease-in-out px-5 py-2 hover:bg-green-700 text-white"
+              >
+                Create New eKi Account
+              </button>
+            </a>
+            <div class="w-full py-10">
+              <h2 class="mt-6 text-1xl text-gray-500">
+                Already have an account
+              </h2>
+              <a href="signIn.html">
+                <button
+                  class="border w-full transition duration-500 ease-in-out rounded-lg px-5 py-2 border-primary hover:bg-primary text-primary hover:text-white text-white"
+                >
+                  Login to your Account
+                </button>
+              </a>
             </div>
           </div>
-          <hr class="text-white bg-white md:mx-40 rounded-full" />
-          <div class="md:mx-60 my-5 sm:mx-0">
-            <div
-              class="flex md:flex-row md:gap-4 w-full md:justify-center md:flex-wrap md:space-y-0 sm:flex-col sm:items-center sm:space-y-5"
-            >
-              <button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                Natural Sesame Seed</button
-              ><button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                Black Sesame Seed</button
-              ><button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                Hulled Sesame Seed
-              </button>
-
-              <button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                <a href="selected.html"> Palm Kernel </a>
-              </button>
-              <button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                Palm Oil</button
-              ><button
-                class="bg-white text-primary px-5 py-2 hover:bg-primary hover:text-white transition duration-500 ease-in-out rounded-lg md:w-fit sm:w-3/4"
-              >
-                Soya beans seed
-              </button>
-            </div>
-          </div>
-
-          <h1 class="text-white md:text-2xl mt-5 font-mont capitalize">
-            Can't find Your interested product?
-          </h1>
-          <button
-            class="bg-white text-primary hover:bg-primary hover:text-white shadow shadow-green-500 transition duration-500 ease-in-out px-5 py-3 rounded-lg mt-5 mb-5"
-          >
-            Contact Support
-          </button>
         </div>
-      </section>
-      <!-- End Header -->
-      <section class="footer-section text-sm">
+      </div>
+
+      <!-- End here -->
+      <section class="footer-section text-sm font-mont">
         <div
           class="footer-main-ctn bg-footer bg-cover bg-gray-900 bg-blend-multiply md:px-20 sm:px-10 py-20 text-white"
         >
@@ -486,7 +364,7 @@
           </div>
         </div>
       </section>
-      <!-- End Footer -->
+      <!-- End Of Footer -->
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

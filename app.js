@@ -1,42 +1,16 @@
 const bars = document.querySelector("#bars");
-const menu = document.querySelector("#menu");
+const mobile = document.querySelector("#mobileNav");
+const closeIcon = document.querySelector("#closeIcon");
+const filterOpen = document.querySelector("#filterIcon");
+const filter = document.querySelector("#filteredOptions");
 
-bars.addEventListener("click", () => {
-  if (menu.classList.contains("hidden") && window.innerWidth < 780) {
-    menu.classList.remove("hidden");
-    menu.classList.add(
-      "flex",
-      "flex-col",
-      "text-right",
-      "bg-gradient-to-r",
-      "w-full",
-      "absolute",
-      "top-16"
-    );
-  } else {
-    menu.classList.add("hidden");
-  }
-});
+// Menu Toggler
+bars.addEventListener("click", () => mobile.classList.remove("hidden"));
+closeIcon.addEventListener("click", () => mobile.classList.add("hidden"));
+// End Menu Toggler
 
-menu.addEventListener("click", () => {
-  menu.classList.add("hidden");
-});
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 760) {
-    menu.classList.add("hidden");
-    menu.classList.remove(
-      "flex",
-      "flex-col",
-      "text-right",
-      "bg-gradient-to-r",
-      "w-full",
-      "absolute",
-      "top-16"
-    );
-  }
-});
-
+// Filter Toggler
+filterOpen.addEventListener("click", () => filter.classList.toggle("hidden"));
 
 var swiper = new Swiper(".mySwiper", {
   direction: "horizontal",

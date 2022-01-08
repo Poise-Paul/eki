@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
     <title>Eki Market Place</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,7 +39,21 @@
             },
             colors: {
               clifford: "#da373d",
+              secondary: "#2E6B3E",
+              primary: "#4DB268",
+              mainBg: "#F2F2F2",
+              lightGray: "#8C8C8C",
+              darkGray: "#595959",
+              smNav: "#333333",
+
             },
+            fontFamily: {
+              mont: ["montserrat"],
+              san: ["Open Sans"],
+            },
+            screens:{
+              sm: '300px'
+            }
           },
         },
       };
@@ -50,140 +63,200 @@
         .content-auto {
           content-visibility: auto;
         }
+        @layer base{
+          ::-webkit-scrollbar{
+            display:none;
+          }
+          body{
+              @apply bg-mainBg
+            }
+        }
       }
     </style>
   </head>
   <body>
-    <div class="h-full relative">
-      <nav>
-        <nav
-          role="navigation"
-          class="
-            flex
-            justify-between
-            items-center
-            lg:h-28
-            sm:h-16
-            bg-gradient-to-r
-            from-primary
-            to-green-700
-            text-white
-            relative
-          "
+    <div class="h-full relative w-full font-mont">
+      <!-- Start Navigation -->
+      <nav
+      role="navigation"
+      class="flex justify-between items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative"
+    >
+      <a href="index.html" class="ml-6"
+        ><img
+          src="./Assets/Eki-Logo.svg"
+          class="lg:w-full sm:w-3/4 w-20"
+          alt=""
+      /></a>
+      <div class="px-4 cursor-pointer md:hidden" id="bars">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-green-700"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <a href="index.html" class="ml-6"
-            ><img src="./Assets/Logo.png" class="lg:w-full sm:w-1/2" alt=""
-          /></a>
-          <div class="px-4 cursor-pointer md:hidden" id="bars">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-green-700"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </div>
-          <div
-            class="hidden md:block mr-4 p-5 space-x-4 z-10 text-gray-200"
-            id="menu"
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </div>
+      <div
+        class="hidden md:block mr-4 p-5 space-x-4 z-10 text-gray-200"
+        id="menu"
+      >
+        <a
+          href="index.html"
+          class="hover:text-white transition duration-500 ease-in-out"
+          >Home</a
+        >
+        <a
+          href="products.html"
+          class="hover:text-green-700 transition duration-500 ease-in-out"
+          >Products</a
+        >
+        <a
+          href="signIn.html"
+          class="hover:text-green-700 transition duration-500 ease-in-out"
+          >Login</a
+        >
+        <a
+          href="signUp.html"
+          class="hover:text-green-700 transition duration-500 ease-in-out text-green-700"
+          >Sign Up</a
+        >
+      </div>
+    </nav>
+
+    <!-- Mobile Nav Bar -->
+    <div
+      class="bg-smNav opacity-95 top-0 left-0 h-screen overflow-hidden fixed z-50 w-full p-5 text-white hidden transition duration-500 ease-in-out"
+      id="mobileNav"
+    >
+      <div class="grid grid-cols-2">
+        <div class="">
+          <img src="./Assets/Eki-white.svg" class="w-16" alt="" />
+        </div>
+        <div class="flex justify-end close-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 cursor-pointer"
+            id="closeIcon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <a
-              href="index.html"
-              class="
-                hover:text-white
-                transition
-                duration-500
-                ease-in-out
-              
-              "
-              >Home</a
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="flex justify-center font-mont font-bold text-center text-2xl pt-10"
+      >
+        <ul class="flex flex-col space-y-7">
+          <a href="index.html">
+            <li
+              class="hover:text-primary transition duration-500 ease-in-out"
             >
-            <a
-              href="products.html"
-              class="hover:text-green-700 transition duration-500 ease-in-out text-green-700"
-              >Products</a
+              Home
+            </li></a
+          >
+          <a href="products.html">
+            <li
+              class="text-primary hover:text-primary transition duration-500 ease-in-out"
             >
-            <a
-              href="signIn.html"
-              class="hover:text-green-700 transition duration-500 ease-in-out"
-              >Login</a
+              Products
+            </li></a
+          >
+          <a href="signIn.html">
+            <li
+              class="hover:text-primary transition duration-500 ease-in-out"
             >
-            <a
-              href="signUp.html"
-              class="hover:text-green-700 transition duration-500 ease-in-out"
-              >Sign Up</a
+              Sign In
+            </li>
+          </a>
+          <a href="signUp.html">
+            <li
+              class="hover:text-primary transition duration-500 ease-in-out"
             >
-          </div>
-        </nav>
-      </nav>
+              Sign Up
+            </li></a
+          >
+        </ul>
+      </div>
+    </div>
+      <!-- End of Navigation -->
       <!-- Header -->
       <section
         class="
           header-section
-          h-96
-          bg-products bg-gray-500 bg-blend-multiply bg-cover
+          h-64
+          bg-products bg-gray-400 bg-blend-multiply bg-cover
           text-center text-white
-          flex flex-col
+          flex items-center justify-center 
         "
       >
-        <div class="py-32">
-          <h1 class="text-3xl uppercase">
+        <div class="">
+          <h1 class="text-3xl md:px-0 sm:px-10 uppercase">
             <strong
               >Fair Trade <br />
               for all african farmers</strong
             >
           </h1>
         </div>
-        <div
-          class="
-            bg-green-700
-            h-12
-            pr-20
-            items-end
-            text-3xl
-            font-semibold
-            text-left
-            px-36
-            mt-4
-          "
-        >
-          Products
-        </div>
       </section>
-      <div class="grid grid-cols-4 px-36 space-x-5">
-        <div class="right-box col-span-1 p-5">
-          <div class="px-5 py-2 bg-white shadow-sm shadow-gray-500 h-10">
+      <div>
+    <!-- First - Menu -->
+    <div class="
+    bg-green-700
+    p-4
+    text-3xl
+    font-semibold
+    text-left
+    text-white
+    md:px-40
+    md:flex sm:grid sm:grid-cols-2
+    items-center">
+    <h1>Products</h1> 
+    <div class="md:hidden sm:flex sm:justify-end">
+     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" id="filterIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+     </svg>
+    </div> 
+    </div>
+    <!-- End of First Menu -->
+
+    <!-- Second Menu -->
+   <!-- End Of Second Menu -->
+    </div>
+      <div class="md:grid md:grid-cols-4 lg:px-36 md:px-5 sm:px-0 space-x-5 relative">
+        <div class="right-box col-span-1 p-5 md:block md:text-sm sm:hidden">
+          <div class="px-5 text-darkGray py-2 font-semibold bg-white shadow-sm border-gray-300 border shadow-gray-300 h-10">
             Palm Kernel
           </div>
           <div
-            class="price-range bg-white h-40 shadow shadow-gray-500 p-5 mt-5"
+            class="price-range text-darkGray bg-white h-28 shadow-sm border-gray-300  shadow-gray-400 p-5 mt-5"
           >
-            <h1 class="font-bold">Price</h1>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value="50"
-              class="slider"
-              id="myRange"
-            />
+            <h1 class="font-semibold text-darkGray">Price</h1>
+            <input type="range" max="100" value="60" class=""> 
             <div class="flex flex-row space-x-7">
-              <p class="font-bold">N1,200</p>
-              <p class="font-bold">N50,000</p>
-            </div>
+              <p class="font-semibold">N1,200</p>
+              <p class="font-semibold">N50,000</p>
+            </div>  
           </div>
 
           <div
-            class="requirements-select bg-white shadow-gray-500 shadow mt-5 p-5"
+            class="requirements-select bg-white shadow-gray-400 shadow mt-5 p-5 text-lightGray"
           >
-            Requirements
+           <h1 class="text-darkGray font-semibold">Requirements</h1> 
+           <div class="space-y-5">
             <div class="">
               <label for="selectMax" class="text-gray-500"
                 >Max Moisture Content (%)</label
@@ -399,43 +472,290 @@
             </div>
             <div><input type="checkbox"> Immediate Delivery</div>
             <div class="last-buttons flex flex-row space-x-5 mt-2">
-                <button class="bg-green-500 px-5 py-2 hover:bg-green-700 transition duration-500 ease-in-out text-white rounded">Filter</button><button class="border border-gray-500 hover:bg-gray-300 transition duration-500 ease-in-out text-gray-500 px-5 py-2 rounded">Cancel</button>
-            </div>
+              <button class="bg-green-500 px-5 py-2 hover:bg-green-700 transition duration-500 ease-in-out text-white rounded">Filter</button><button class="border border-gray-500 hover:bg-gray-300 transition duration-500 ease-in-out text-gray-500 px-5 py-2 rounded">Cancel</button>
+          </div>
+          </div>
           </div>
         </div>
+        <!-- Filtered Mobile Option -->
+        <div class="right-box col-span-1 p-5 hidden bg-gray-100 z-50 " id="filteredOptions">
+          <div class="px-5 text-darkGray py-2 font-semibold bg-white shadow-sm border-gray-300 border shadow-gray-300 h-10">
+            Palm Kernel
+          </div>
+          <div
+            class="price-range text-darkGray bg-white h-28 shadow-sm border-gray-300  shadow-gray-400 p-5 mt-5"
+          >
+            <h1 class="font-semibold text-darkGray">Price</h1>
+            <input type="range" max="100" value="60" class=""> 
+            <div class="flex flex-row space-x-7">
+              <p class="font-semibold">N1,200</p>
+              <p class="font-semibold">N50,000</p>
+            </div>  
+          </div>
+
+          <div
+            class="requirements-select bg-white shadow-gray-400 shadow mt-5 p-5 text-lightGray"
+          >
+           <h1 class="text-darkGray font-semibold">Requirements</h1> 
+           <div class="space-y-5">
+            <div class="">
+              <label for="selectMax" class="text-gray-500"
+                >Max Moisture Content (%)</label
+              >
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!-- Second Select -->
+            <div class="">
+              <label for="selectMax" class="text-gray-500">Max Shell (%)</label>
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!-- Third Select -->
+            <div class="">
+              <label for="selectMax" class="text-gray-500"
+                >Max Moisture (%)</label
+              >
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!-- Forth Select -->
+            <div class="">
+              <label for="selectMax" class="text-gray-500"
+                >Min Oil Content (%)</label
+              >
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!-- Fifth Select -->
+            <div class="">
+              <label for="selectMax" class="text-gray-500">Min Broken(%)</label>
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!--  Six Select -->
+            <div class="">
+              <label for="selectMax" class="text-gray-500"
+                >Min Unracked (%)</label
+              >
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <!-- Naira Select Here -->
+            <div>
+              <label for="price" class="block text-sm font-medium text-gray-700">Weight</label>
+              <div class="mt-1 relative rounded-md shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 sm:text-sm">
+                    &#8358; 
+                  </span>
+                </div>
+                <div class="flex flex-row">
+                  <div class="border border-gray-200"><input type="text" name="price" id="price" class="focus:outline-none focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00"></div>
+                   <span>to</span> <div class="border border-gray-200"><input type="text" name="price" id="price" class="focus:outline-none block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00"></div>
+                </div>
+              </div>
+            </div>  
+            <!-- End Naira Selsect -->
+            <div class="mt-2">
+              <label for="price" class="block text-sm font-medium text-gray-700">Price per weight unit</label>
+              <div class="mt-1 relative rounded-md shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 sm:text-sm">
+                    &#8358; 
+                  </span>
+                </div>
+                <div class="flex flex-row">
+                  <div class="border border-gray-200"><input type="text" name="price" id="price" class="focus:outline-none block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00"></div>
+                   <span>to</span> <div class="border border-gray-200"><input type="text" name="price" id="price" class="focus:outline-none block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00"></div>
+                </div>
+              </div>
+            </div> 
+            <div class="mt-2">
+              <label for="selectMax" class="text-gray-500"
+                >Country of Origin</label
+              >
+              <select
+                class="
+                  block
+                  w-full
+                  bg-white
+                  border border-gray-400
+                  hover:border-gray-500
+                  px-4
+                  py-2
+                  pr-8
+                  rounded
+                  shadow
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="selectMax"
+              >
+                <option>Nigeria</option>
+                <option>Ghana</option>
+                <option>Kenya</option>
+              </select>
+            </div>
+            <div><input type="checkbox"> Immediate Delivery</div>
+            <div class="last-buttons flex flex-row space-x-5 mt-2">
+              <button class="bg-green-500 px-5 py-2 hover:bg-green-700 transition duration-500 ease-in-out text-white rounded">Filter</button><button class="border border-gray-500 hover:bg-gray-300 transition duration-500 ease-in-out text-gray-500 px-5 py-2 rounded">Cancel</button>
+          </div>
+          </div>
+          </div>
+        </div>
+        <!-- End of Filtered Mobile Option -->
         <div class="col-span-3 p-5 flex-col flex space-y-5">
-          <!-- First Column -->
-          <div class="p-5 bg-white grid-cols-2 grid shadow-sm shadow-gray-500">
-            <div class="imgContent flex flow-row space-x-5">
-              <div class="p-5">
+          <!-- First Column --> 
+                                <!-- Show on small screen -->
+                                <div class="px-5 text-darkGray py-2 font-semibold bg-white shadow-sm border-gray-300 border shadow-gray-300 h-10 md:hidden sm:block">
+                                  Palm Kernel
+                                </div>
+                                <!-- Show on small screen --> 
+
+          <div class="md:p-5 sm:p-3 bg-white md:grid-cols-2 md:grid sm:flex sm:flex-col sm:space-y-3 shadow-sm shadow-gray-500 rounded-lg">
+
+          <!-- View on Medium and Large Breakpoints -->
+            <div class="imgContent md:grid md:grid-cols-2 sm:hidden gap-4">
+              <div class="">
                 <img
                   src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
                   alt="oil-seeds"
                 />
               </div>
-              <div class="">
-                <h1 class="font-bold">Palm Kernel</h1>
-                <small>1 bag (125kg)</small>
-                <small class="font-bold">Lokoja, Nigeria</small>
-                <p class="font-bold">N32,000</p>
-              </div>
+              <div class="font-mont space-y-3">
+                <h1 class="font-semibold text-darkGray">Palm Kernel</h1>
+                <small> <span class="text-lightGray"> 1 bag (125kg)</span></small> <br> 
+                <small> <span class="font-semibold text-darkGray">Lokoja, Nigeria</span> </small>
+                <p class="font-medium text-darkGray">&#8358;32,000</p>
+              </div>  
             </div>
-            <div class="button-fav block relative">
+            <div class="button-fav relative md:grid sm:hidden">
+              <div class="absolute right-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg></div>
               <button
                 class="
-                  absolute
-                  right-0
-                  bottom-0
-                  border border-green-500
-                  hover:bg-green-500
-                  shadow shadow-green-500
-                  hover:text-white
-                  text-green-500
-                  Purchase
-                  Offer
+                 bg-primary hover:bg-green-700
+                 text-white 
                   rounded
                   px-5
                   py-2
+                  absolute right-0 bottom-0
                   transition
                   duration-500
                   ease-in-out
@@ -444,39 +764,59 @@
                 Purchase Offer
               </button>
             </div>
+        <!-- End Medium and Large Breakpoints Here -->
+
+        <!-- Small Breakpoints -->
+            <div class="md:hidden sm:grid">         <div class="">
+              <img
+                src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
+                alt="oil-seeds"
+              />
+            </div></div>
+            <div class="md:hidden sm:grid sm:grid-cols-2">
+              <div class="flex flex-col"> <h1 class="font-semibold text-gray-700">Palm Kernel</h1> <small> <span class="text-gray-300">1 bag (25kg)</span></small></div>
+            <div class="flex justify-end"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg></div>
           </div>
+            <div class="md:hidden sm:grid sm:grid-cols-2">
+              <small> <span class="text-gray-500 font-semibold">Saki,Oyo State</span></small> <h1 class="flex justify-end font-semibold text-primary">&#8358;32,000</h1>
+          </div>
+            <div class="md:hidden sm:flex p-3 rounded-lg text-white sm:justify-center sm:bg-primary sm:hover:bg-green-700 transition duration-500 ease-in-out"><button class="font-semibold">Place Order</button></div>
+      
+            <!-- End Small Breakpoints -->
+          </div>
+
           <!-- Second Column -->
-          <div class="p-5 bg-white grid-cols-2 grid shadow-sm shadow-gray-500">
-            <div class="imgContent flex flow-row space-x-5">
-              <div class="p-5">
+        <div class="md:p-5 sm:p-3 bg-white md:grid-cols-2 md:grid sm:flex sm:flex-col sm:space-y-3 shadow-sm shadow-gray-500 rounded-lg">
+
+          <!-- View on Medium and Large Breakpoints -->
+            <div class="imgContent md:grid md:grid-cols-2 sm:hidden gap-4">
+              <div class="">
                 <img
                   src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
                   alt="oil-seeds"
                 />
               </div>
-              <div class="">
-                <h1 class="font-bold">Palm Kernel</h1>
-                <small>1 bag (125kg)</small>
-                <small class="font-bold">Lokoja, Nigeria</small>
-                <p class="font-bold">N32,000</p>
-              </div>
+              <div class="font-mont space-y-3">
+                <h1 class="font-semibold text-darkGray">Palm Kernel</h1>
+                <small> <span class="text-lightGray"> 1 bag (125kg)</span></small> <br> 
+                <small> <span class="font-semibold text-darkGray">Lokoja, Nigeria</span> </small>
+                <p class="font-medium text-darkGray">&#8358;32,000</p>
+              </div>  
             </div>
-            <div class="button-fav block relative">
+            <div class="button-fav relative md:grid sm:hidden">
+              <div class="absolute right-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg></div>
               <button
                 class="
-                  absolute
-                  right-0
-                  bottom-0
-                  border border-green-500
-                  hover:text-white
-                  hover:bg-green-500
-                  shadow shadow-green-500
-                  text-green-500
-                  Purchase
-                  Offer
+                 bg-primary hover:bg-green-700
+                 text-white 
                   rounded
                   px-5
                   py-2
+                  absolute right-0 bottom-0
                   transition
                   duration-500
                   ease-in-out
@@ -485,81 +825,115 @@
                 Purchase Offer
               </button>
             </div>
+        <!-- End Medium and Large Breakpoints Here -->
+
+        <!-- Small Breakpoints -->
+            <div class="md:hidden sm:grid">         <div class="">
+              <img
+                src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
+                alt="oil-seeds"
+              />
+            </div></div>
+            <div class="md:hidden sm:grid sm:grid-cols-2">
+              <div class="flex flex-col"> <h1 class="font-semibold text-gray-700">Palm Kernel</h1> <small> <span class="text-gray-300">1 bag (25kg)</span></small></div>
+            <div class="flex justify-end"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg></div>
           </div>
-          <!-- Second Column -->
-          <div class="p-5 bg-white grid-cols-2 grid shadow-sm shadow-gray-500">
-            <div class="imgContent flex flow-row space-x-5">
-              <div class="p-5">
+            <div class="md:hidden sm:grid sm:grid-cols-2">
+              <small> <span class="text-gray-500 font-semibold">Saki,Oyo State</span></small> <h1 class="flex justify-end font-semibold text-primary">&#8358;32,000</h1>
+          </div>
+            <div class="md:hidden sm:flex p-3 rounded-lg text-white sm:justify-center sm:bg-primary sm:hover:bg-green-700 transition duration-500 ease-in-out"><button class="font-semibold">Place Order</button></div>
+      
+            <!-- End Small Breakpoints -->
+          </div>
+          <!-- Third Column -->
+          <div class="md:p-5 sm:p-3 bg-white md:grid-cols-2 md:grid sm:flex sm:flex-col sm:space-y-3 shadow-sm shadow-gray-500 rounded-lg">
+
+            <!-- View on Medium and Large Breakpoints -->
+              <div class="imgContent md:grid md:grid-cols-2 sm:hidden gap-4">
+                <div class="">
+                  <img
+                    src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
+                    alt="oil-seeds"
+                  />
+                </div>
+                <div class="font-mont space-y-3">
+                  <h1 class="font-semibold text-darkGray">Palm Kernel</h1>
+                  <small> <span class="text-lightGray"> 1 bag (125kg)</span></small> <br> 
+                  <small> <span class="font-semibold text-darkGray">Lokoja, Nigeria</span> </small>
+                  <p class="font-medium text-darkGray">&#8358;32,000</p>
+                </div>  
+              </div>
+              <div class="button-fav relative md:grid sm:hidden">
+                <div class="absolute right-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg></div>
+                <button
+                  class="
+                   bg-primary hover:bg-green-700
+                   text-white 
+                    rounded
+                    px-5
+                    py-2
+                    absolute right-0 bottom-0
+                    transition
+                    duration-500
+                    ease-in-out
+                  "
+                >
+                  Purchase Offer
+                </button>
+              </div>
+          <!-- End Medium and Large Breakpoints Here -->
+  
+          <!-- Small Breakpoints -->
+              <div class="md:hidden sm:grid">         <div class="">
                 <img
                   src="https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg"
                   alt="oil-seeds"
                 />
-              </div>
-              <div class="">
-                <h1 class="font-bold">Palm Kernel</h1>
-                <small>1 bag (125kg)</small>
-                <small class="font-bold">Lokoja, Nigeria</small>
-                <p class="font-bold">N32,000</p>
-              </div>
+              </div></div>
+              <div class="md:hidden sm:grid sm:grid-cols-2">
+                <div class="flex flex-col"> <h1 class="font-semibold text-gray-700">Palm Kernel</h1> <small> <span class="text-gray-300">1 bag (25kg)</span></small></div>
+              <div class="flex justify-end"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg></div>
             </div>
-            <div class="button-fav block relative">
-              <button
-                class="
-                  absolute
-                  right-0
-                  bottom-0
-                  border border-green-500
-                  hover:bg-green-500
-                  hover:text-white
-                  shadow shadow-green-500
-                  text-green-500
-                  Purchase
-                  Offer
-                  rounded
-                  px-5
-                  py-2
-                  transition
-                  duration-500
-                  ease-in-out
-                "
-              >
-                Purchase Offer
-              </button>
+              <div class="md:hidden sm:grid sm:grid-cols-2">
+                <small> <span class="text-gray-500 font-semibold">Saki,Oyo State</span></small> <h1 class="flex justify-end font-semibold text-primary">&#8358;32,000</h1>
             </div>
-          </div>
+              <div class="md:hidden sm:flex p-3 rounded-lg text-white sm:justify-center sm:bg-primary sm:hover:bg-green-700 transition duration-500 ease-in-out"><button class="font-semibold">Place Order</button></div>
+        
+              <!-- End Small Breakpoints -->
+            </div>
           <!-- Second Column -->
         </div>
       </div>
-      <div class="w-full text-center mb-5"> <h1 class="font-bold pb-3">Can't find your preffered Order?</h1> <button class="border border-green-500 px-5 py-2 rounded text-green-500 hover:bg-green-500 hover:text-white transition duration-500 ease-in-out">Create new offer</button></div>
+      <div class="w-full flex flex-row space-x-3 items-center">
+        <div class="flex max-w-lg m-auto space-x-5"><div class="text-gray-400 flex items-center">< Previous</div><div class="rounded-full bg-green-700 w-10 h-10 relative flex justify-center items-center text-white">1</div><div class="rounded-full bg-gray-300 w-10 h-10 relative flex justify-center items-center">2</div> <div class="rounded-full bg-green-700 w-10 h-10 relative flex justify-center items-center text-white">3</div> <div class="rounded-full bg-green-700 w-10 h-10 relative flex justify-center items-center text-white">4</div><div class="rounded-full bg-green-700 w-10 h-10 relative flex justify-center items-center text-white">5</div><div class="text-gray-400 flex   items-center">Next ></div></div>
+      </div>
+      <div class="w-full text-center mb-5 mt-5"> <h1 class="pb-3">Can't find your preffered Order?</h1> <button class="border border-primary px-5 py-2 rounded text-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out">Create new offer</button></div>
         </div>
       </div>
         </div>
       </div>
+
       <!-- End Header -->
-      <section class="footer-section">
+      <section class="footer-section text-sm font-mont">
         <div
-          class="
-            footer-main-ctn
-            bg-footer bg-cover bg-gray-900 bg-blend-multiply
-            px-20
-            py-20
-            text-white
-          "
+          class="footer-main-ctn bg-footer bg-cover bg-gray-900 bg-blend-multiply md:px-20 sm:px-10 py-20 text-white"
         >
           <div
-            class="
-              footer-ctn
-              lg:grid lg:grid-cols-3 lg:gap-4
-              sm:block sm:text-left sm:space-y-4
-            "
+            class="footer-ctn md:mx-60 grid md:grid-cols-3 sm:grid-cols-2 sm:gap-5 sm:text-left sm:space-y-4"
           >
-            <div class="grid-item">
+            <div class="grid-item md:inline sm:hidden">
               <img src="/Assets/Eki Logo-white.svg" alt="" />
             </div>
             <div class="grid-item">
-              <ul>
-                <li class="pb-3">
-                  <h4><strong>Quick Links</strong></h4>
+              <ul class="flex flex-col space-y-3">
+                <li>
+                  <h4 class="font-bold">Quick Links</h4>
                 </li>
                 <li>eki (Marketplace)</li>
                 <li>Products & Servivces</li>
@@ -568,11 +942,12 @@
               </ul>
             </div>
             <div class="grid-item">
+              <h1 class="text-white font-bold">For Inquiries</h1>
               <ul>
                 <li class="flex mt-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-10 pr-4"
+                    class="md:h-8 md:w-10 sm:w-7 md:pr-4 sm:pr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -589,7 +964,7 @@
                 <li class="flex mt-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-10 pr-4"
+                    class="md:h-8 md:w-10 sm:w-7 md:pr-4 sm:pr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -606,7 +981,7 @@
                 <li class="flex mt-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-10 pr-4"
+                    class="md:h-8 md:w-10 sm:w-12 md:pr-4 sm:pr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -631,13 +1006,47 @@
           </div>
           <div class="flex justify-center pt-20"><strong>PARTNERS</strong></div>
 
-          <div class="buttom-ctn flex justify-center">
+          <div class="buttom-ctn flex flex-col items-center space-y-4">
             <div class="">
               <img src="/Assets/USAID.svg" alt="" />
             </div>
+            <div class="mopbile-social md:hidden sm:visible">
+              <div class="socials">
+                <ul class="flex flex-row float-right space-x-5">
+                  <li>
+                    <i class="bx bxl-facebook-circle text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-instagram text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-whatsapp text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-twitter text-2xl"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <hr class="mt-10" />
-          <div class="social-bottom grid grid-cols-2 space-x-5 mt-5">
+
+          <!-- Mobile Bottom -->
+          <div class="sm:flex flex-col space-y-5 md:hidden">
+            <img src="./Assets/Eki Logo-white.svg" alt="" class="w-28 mt-5" />
+            <div class="">
+              <ul class="grid grid-cols-3">
+                <li><small>&copy;2021 Revemi NG</small> .</li>
+                <li><small>Privacy Policy</small></li>
+                <li><small>Terms Of Use</small></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Mobile Bottom -->
+
+          <div
+            class="social-bottom md:grid md:grid-cols-2 space-x-5 mt-5 sm:hidden"
+          >
             <div class="copyright">
               <ul class="flex flex-row space-x-5">
                 <li>&copy; 2021 Revemi NG.</li>
@@ -648,27 +1057,26 @@
             <div class="socials">
               <ul class="flex flex-row float-right space-x-5">
                 <li>
-                  <i
-                    class="bx bxl-facebook-circle bx-tada bx-rotate-90 text-2xl"
-                  ></i>
+                  <i class="bx bxl-facebook-circle text-2xl"></i>
                 </li>
                 <li>
-                  <i class="bx bxl-instagram bx-tada bx-rotate-90 text-2xl"></i>
+                  <i class="bx bxl-instagram text-2xl"></i>
                 </li>
                 <li>
-                  <i class="bx bxl-whatsapp bx-burst bx-rotate-90 text-2xl"></i>
+                  <i class="bx bxl-whatsapp text-2xl"></i>
                 </li>
                 <li>
-                  <i class="bx bxl-twitter bx-spin bx-rotate-90 text-2xl"></i>
+                  <i class="bx bxl-twitter text-2xl"></i>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
+      <!-- End of Footer -->
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <script src="/app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
